@@ -17,57 +17,57 @@
            :class="[item.input_type=='image'? 'photo-list':'']">
         <div class="mgt10 info-div"
              v-if="item.input_type=='text'">
-          <p>
+          <!-- <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <input class="inp"
                  type="text"
                  v-model="item[item.code]"
-                 :placeholder="item.example_val ">
+                 :placeholder="item.title ">
           <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='phone'||item.input_type=='number'">
-          <p>
+          <!-- <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <input class="inp"
                  type="number"
                  v-model="item[item.code]"
-                 :placeholder="item.example_val ">
+                 :placeholder="item.title ">
           <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select'">
-          <p>
+          <!-- <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <popup-picker class="inp"
                         value-text-align="left"
                         cancel-text="Batal"
                         confirm-text="Konfirmasi"
                         v-model="item[item.code]"
                         :data="[item.valueArr]"
-                        :placeholder="item.example_val "></popup-picker>
+                        :placeholder="item.title "></popup-picker>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='date'|| item.input_type == 'date_month'">
-          <p>
+          <!-- <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <!-- <popup-picker class="inp" value-text-align='left' :data='item.value' cancel-text='Batal' confirm-text='Konfirmasi' v-model="item[item.code]" :placeholder="item.example_val "></popup-picker> -->
           <datetime :default-selected-value="`${new Date()}`"
                     class="inp"
@@ -78,7 +78,7 @@
                     format="DD-MM-YYYY"
                     confirm-text="Konfirmasi"
                     v-model="item[item.code]"
-                    :placeholder="item.example_val "></datetime>
+                    :placeholder="item.title "></datetime>
           <datetime :default-selected-value="`${new Date()}`"
                     class="inp"
                     value-text-align="left"
@@ -88,18 +88,18 @@
                     format="MM-YYYY"
                     confirm-text="Konfirmasi"
                     v-model="item[item.code]"
-                    :placeholder="item.example_val "></datetime>
+                    :placeholder="item.title "></datetime>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select_province'||item.input_type=='select_city'||item.input_type=='select_large_district'||item.input_type=='select_small_district'">
-          <p>
+          <!-- <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <popup-picker class="inp"
                         value-text-align="left"
                         :data="item.value"
@@ -109,7 +109,7 @@
                         v-model="item[item.code]"
                         @on-change="todoaddress(item.input_type,'',index)"
                         show-name
-                        :placeholder="item.example_val "></popup-picker>
+                        :placeholder="item.title "></popup-picker>
           <div @click="todoaddress(item.input_type,1)"
                v-else>
             <popup-picker class="inp"
@@ -118,7 +118,7 @@
                           disabled
                           cancel-text="Batal"
                           show-name
-                          :placeholder="item.example_val "></popup-picker>
+                          :placeholder="item.title "></popup-picker>
           </div>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div class="br"></div>
@@ -188,7 +188,7 @@ import devinfo from "../request/devinfo";
 import { toNext, toNexturl, getData, tocheckVal, todoaddress } from "./tonext";
 
 export default {
-  name: "WorkAndStuInfo",
+  name: "UserAddress",
   components: {
     PopupPicker,
     Datetime,
@@ -232,7 +232,7 @@ export default {
       Cashcash.defaultCamera();
     },
 
-    //输入监控操作
+    //输入监控操作方式
     async blurFun(item) {
       let info = await this.axios.post('/log/field-value',
         { pro_code: 1100, order_no: this.$route.query.order_no || '', field_name: item.code, field_value: JSON.stringify(item[item.code]) }

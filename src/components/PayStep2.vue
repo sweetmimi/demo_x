@@ -492,7 +492,7 @@ export default {
         this.showcair = true
       }
     },
-
+//跳转免息券
     toProductLoan(coupon_appid) {
       if (!coupon_appid) {
         let name = location.origin

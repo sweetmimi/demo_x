@@ -8,12 +8,13 @@
       <!-- <p style="font-size: 15px;margin-top: 10px;">Sistem sedang ditinjau, mohon tunggu</p> -->
       <p>Loading...</p>
     </div>
-  <!-- 步骤线 -->
+  <!-- 订单状态 -->
     <div class="step-top-line">
 
       <div class="">
         <!-- 信息正在提交中 -->
         <div v-if='infoData.status=="80"' style="height:100px">
+         <van-notice-bar mode="closeable">Informasi sedang dikirim, harap tunggu.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
             <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
           </div>
@@ -21,6 +22,7 @@
         </div>
         <!-- 重新提交补充信息 -->
         <div v-if='infoData.status=="80"&&infoData.order_error==1&&infoData.resubmit==1' style="height:100px">
+         <van-notice-bar mode="closeable">Kirim informasi gagal, silahkan kirim lagi dari awal.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
             <img src="../../dist/static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
           </div>
@@ -28,7 +30,7 @@
         </div>
         <!-- 等待审核 -->
         <div v-if='infoData.status=="90"' style="height:100px">
-         <van-notice-bar mode="closeable">Pengajuan sedang di verifikasi，mohon menunggu</van-notice-bar>
+         <van-notice-bar mode="closeable">Pengajuan sedang di verifikasi，mohon menunggu.</van-notice-bar>
 
           <div style="width:50px;height:50px;margin:0px auto 0;padding-top:20px">
             <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
@@ -37,6 +39,7 @@
         </div>
         <!-- 审核不通过 -->
         <div v-if='infoData.status=="110"' style="height:100px">
+         <van-notice-bar mode="closeable">Maaf, pengajuan Anda gagal.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
             <img src="../../dist/static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
           </div>
@@ -45,7 +48,6 @@
         <!-- 审核通过 -->
         <div v-if='infoData.status=="100"' style="height:100px">
          <van-notice-bar mode="closeable">Selamat pengajuan Anda berhasil, Sistem sedang mencairkan dana Anda, mohon tunggu.</van-notice-bar>
-
           <div style="width:50px;height:50px;margin:0 auto;padding-top:20px">
             <img src="../../dist/static/images/revie_pass.png" alt="" style="wight:100%;height:100%">
           </div>
@@ -53,6 +55,7 @@
         </div>
         <!-- 重新提交补充信息 -->
         <div v-if='infoData.status=="99"' style="height:100px">
+         <van-notice-bar mode="closeable">Isi ulang informasi untuk pengajuan.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
             <img src="../../dist/static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
           </div>
@@ -226,9 +229,9 @@
 
       <div class="info-list-nav">
         <li>
-          <span class="left">
-            <p class>Informasi Pinjaman</p>
-          </span>
+          <div class="left">
+            <div class="listHeader">Informasi Pinjaman</div>
+          </div>
           <!-- <i class="right iconfont icon-youjiantou"></i> -->
         </li>
       </div>
@@ -289,7 +292,10 @@
       </div>
 
       <div class='loan_list_div'>
-        <div class='loan_list_info'>Produk populer</div>
+        <div class="left">
+          <div class='listHeader' >Mudah Disetujui</div>
+        </div>
+        
         <div class="br"></div>
         <div class="loan_mid">
           <li v-for="(item,index) in tjdata"
@@ -301,7 +307,7 @@
                      alt="">
                 <h4>{{item.product_name}}</h4>
                 <span>{{item.total_score}}<i><img width="100%"
-                                                  src="/static/images/ic_star_orange.png"
+                                                  src="../../dist/static/images/star.png"
                                                   alt=""> </i></span>
               </div>
               <em>
@@ -310,7 +316,7 @@
             </div>
             <div class="mid">
               <span class='left'>
-                <h3>Rp {{item.price_new||'1.000.000'}}</h3>
+                <h4>Rp {{item.price_new||'1.000.000'}}</h4>
                 <!-- <p>{{'Jumlah maksimum'}}</p> -->
               </span>
               <span>
@@ -528,10 +534,11 @@ html,
   transform: rotate(90deg);
 }
 
-.loan_list_info {
-  font-size: 14px;
+.listHeader {
+  font-size: 16px;
   color: #333;
-  margin: 10px 0px;
+  font-weight: 600;
+  padding: 5px 10px;
   height: 30px;
 }
 .tjlist {
@@ -653,7 +660,7 @@ export default {
         this.infoData.status=="169"||this.infoData.status=="170"||this.infoData.status=="200") {
         
         let info = await this.axios.post("/featured-product/shop-window", { order_no: this.infoData.order_no,page_path:'order_reject' });
-          
+        
         if (info.code === 0 && info.data && info.data.length > 0) {
           this.tjdata = info.data
           
@@ -815,7 +822,7 @@ export default {
     },
 
     tobindcard() {
-      this.$router.push({ path: '/BindBankCard', query: { order_no: this.infoData.order_no } })
+      this.$router.push({ path: '/infoBankCard', query: { order_no: this.infoData.order_no } })
     },
     toContectKf() {
       Cashcash.startCustomerService()

@@ -267,7 +267,7 @@ import devinfo from "../request/devinfo";
 import { toNext, toNexturl, getData, tocheckVal, todoaddress } from "./tonext";
 
 export default {
-  name: "WorkAndStuInfo",
+  name: "infoUser",
   components: {
     PopupPicker,
     Radio,

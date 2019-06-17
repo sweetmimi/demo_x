@@ -160,7 +160,7 @@ import baseinfo from "../request/baseinfo";
 import { toNext, toNexturl } from "./tonext";
 import devinfo from "../request/devinfo";
 export default {
-  name: "BindBankCard",
+  name: "infoBankCard",
   components: {
     XDialog,
     Confirm

@@ -2,7 +2,8 @@
   <div class="bgc">
     <div class="loading"
          v-if="!infoData">Loading....</div>
-    <div class="top-tips">Selesaikan pembayaran. penundaan pembayaran berhenti</div>
+    <!-- <div class="top-tips">Selesaikan pembayaran. penundaan pembayaran berhenti</div> -->
+    <van-notice-bar  mode="closeable">Selesaikan pembayaran. penundaan pembayaran berhenti</van-notice-bar>
 
     <div class='paydelay_num'>
       <span>Bayar sekarang</span>

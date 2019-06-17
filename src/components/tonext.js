@@ -45,7 +45,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     }
     if (info.data.next_pro == 1100) {
       obj.$router.replace({
-        path: '/UserInfo',
+        path: '/infoUser',
         query: {
           order_no: info.data.order_no || '',
           pro_code: info.data.next_pro
@@ -73,7 +73,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     }
     if (info.data.next_pro == 2000) {
       obj.$router.replace({
-        path: '/JobInfo',
+        path: '/infoJob',
         query: {
           order_no: info.data.order_no || '',
           pro_code: info.data.next_pro
@@ -83,7 +83,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     // 跳转工作学生基本信息
     if (info.data.next_pro == 8000) {
       obj.$router.replace({
-        path: '/WorkAndStuInfo',
+        path: '/infoStudent',
         query: {
           order_no: info.data.order_no,
           pro_code: info.data.next_pro
@@ -94,7 +94,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     // 跳转补充信息
     if (info.data.next_pro == 7500) {
       obj.$router.replace({
-        path: '/AddsomeInfo',
+        path: '/infoAdd',
         query: {
           order_no: info.data.order_no,
           pro_code: info.data.next_pro
@@ -104,7 +104,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     // 跳转 联系人信息
     if (info.data.next_pro == 4000) {
       obj.$router.replace({
-        path: '/ContactInfo',
+        path: '/infoCont',
         query: {
           order_no: info.data.order_no,
           pro_code: info.data.next_pro
@@ -124,7 +124,7 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     // 跳转 绑定英航卡
     if (info.data.next_pro == 7000) {
       obj.$router.replace({
-        path: '/BindBankCard',
+        path: '/infoBankCard',
         query: {
           order_no: info.data.order_no,
           pro_code: info.data.next_pro

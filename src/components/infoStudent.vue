@@ -17,41 +17,41 @@
            :class="[item.input_type=='image'? 'photo-list':'']">
         <div class="mgt10 info-div"
              v-if="item.input_type=='text'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <input class="inp"
                  type="text"
                  @focus="focusFun(item)"
                  v-model="item[item.code]"
-                 :placeholder="item.example_val ">
+                 :placeholder="item.title ">
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='phone'||item.input_type=='number'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <input class="inp"
                  type="number"
                  @focus="focusFun(item)"
                  v-model="item[item.code]"
-                 :placeholder="item.example_val ">
+                 :placeholder="item.title ">
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <popup-picker class="inp"
                         @on-change="focusFun(item)"
                         value-text-align="left"
@@ -59,18 +59,18 @@
                         confirm-text="Konfirmasi"
                         v-model="item[item.code]"
                         :data="[item.valueArr]"
-                        :placeholder="item.example_val "></popup-picker>
+                        :placeholder="item.title "></popup-picker>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='date'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <!-- <popup-picker class="inp" value-text-align='left' :data='item.value' cancel-text='Batal' confirm-text='Konfirmasi' v-model="item[item.code]" :placeholder="item.example_val "></popup-picker> -->
           <datetime :default-selected-value="`${new Date()}`"
                     @on-change="focusFun(item)"
@@ -81,18 +81,18 @@
                     format="DD-MM-YYYY"
                     confirm-text="Konfirmasi"
                     v-model="item[item.code]"
-                    :placeholder="item.example_val "></datetime>
+                    :placeholder="item.title "></datetime>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select_province'||item.input_type=='select_city'||item.input_type=='select_large_district'||item.input_type=='select_small_district'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p>
+          </p> -->
           <popup-picker class="inp"
                         value-text-align="left"
                         :data="item.value"
@@ -102,7 +102,7 @@
                         v-model="item[item.code]"
                         @on-change="todoaddress(item.input_type,'',index)"
                         show-name
-                        :placeholder="item.example_val "></popup-picker>
+                        :placeholder="item.title "></popup-picker>
           <div @click="todoaddress(item.input_type,1)"
                v-else>
             <popup-picker class="inp"
@@ -182,7 +182,7 @@ import devinfo from '../request/devinfo';
 import { toNext, toNexturl, getData, tocheckVal, todoaddress } from "./tonext";
 
 export default {
-  name: "WorkAndStuInfo",
+  name: "infoStudent",
   components: {
     PopupPicker,
     Datetime,

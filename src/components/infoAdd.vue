@@ -1,126 +1,136 @@
 <template>
   <div>
-    
+    <!-- <cell title="Informasi Utama" style="padding-left: 6px;" class="home-navbar" is-link>
+        <i slot="icon" class="home-navbar-icon" >
+            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z' fill='#fff'/></svg>
+        </i>
+    </cell>-->
     <div class="loading"
          v-if="!infoList">Loading....</div>
-         <van-notice-bar v-if="refill_type===1" mode="closeable">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</van-notice-bar>
     <!-- <div class="top-tips"
          v-if="refill_type===1">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</div> -->
+    <van-notice-bar v-if="refill_type===1" mode="closeable">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</van-notice-bar>
+    
     <div class="info-main">
       <div v-for="(item,index) in infoList"
            :key="index"
            :class="[item.input_type=='image'? 'photo-list':'']">
         <div class="mgt10 info-div"
              v-if="item.input_type=='text'">
-          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
+          <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p> -->
-          <span v-if="item.check_type=='name_disabled'"
-                @click="showmsg">
-            <input disabled="true"
-                   style="background: none;"
-                   class="inp"
-                   type="text"
-                   @blur="blurFun(item)"
-                   @focus="focusFun(item)"
-                   v-model="item[item.code]"
-                   :placeholder="item.title ">
-          </span>
-          <input v-else
-                 class="inp"
+          </p>
+          <input class="inp"
                  type="text"
                  @blur="blurFun(item)"
-                 @focus="focusFun(item)"
                  v-model="item[item.code]"
-                 :placeholder="item.title ">
-          <i v-if="item.check_type=='name_disabled'"
-             @click="toselectTel(index)"
-             class="icon-right-addtel iconfont icon-yuanquanjiahao"></i>
-          <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
+                 :placeholder="item.example_val ">
+          <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='phone'||item.input_type=='number'">
-          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
+          <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p> -->
-          <span v-if="item.check_type=='disabled_input_phone'"
-                @click="showmsg">
-            <input disabled="true"
-                   style="background: none;"
-                   class="inp"
-                   type="number"
-                   @blur="blurFun(item)"
-                   @focus="focusFun(item)"
-                   v-model="item[item.code]"
-                   :placeholder="item.title ">
-          </span>
-          <input v-else
-                 class="inp"
+          </p>
+          <input class="inp"
                  type="number"
                  @blur="blurFun(item)"
-                 @focus="focusFun(item)"
                  v-model="item[item.code]"
-                 :placeholder="item.title ">
-          <i v-if="item.check_type=='phone'||item.check_type=='telephone_or_phone'||item.check_type=='disabled_input_phone'"
+                 :placeholder="item.example_val ">
+          <i v-if="item.check_type=='phone'||item.check_type=='telephone_or_phone'"
              @click="toselectTel(index)"
              class="icon-right-addtel iconfont icon-yuanquanjiahao"></i>
-          <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
+          <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select'">
-          <!-- <p :style="{color: item.vFlag===true?'red':'' }">
+          <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
-          </p> -->
+          </p>
+
           <popup-picker class="inp"
+                        v-if="item.code=='ktpType'"
+                        value-text-align="left"
+                        @on-change="dateclick(item,index)"
+                        cancel-text="Batal"
+                        confirm-text="Konfirmasi"
+                        v-model="item[item.code]"
+                        :data="[item.valueArr]"
+                        :placeholder="item.example_val "></popup-picker>
+          <popup-picker class="inp"
+                        v-else
                         value-text-align="left"
                         @on-change="blurFun(item)"
                         cancel-text="Batal"
                         confirm-text="Konfirmasi"
                         v-model="item[item.code]"
                         :data="[item.valueArr]"
-                        :placeholder="item.title"></popup-picker>
+                        :placeholder="item.example_val "></popup-picker>
+
           <i class="icon-right iconfont icon-youjiantou"></i>
-          <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
+          <div class="br"></div>
         </div>
 
+        <!-- <div class="mgt10 info-div" v-if="item.code=='idExpiryDate'">
+          <p>Tipe tanggal
+            <em class="red1" v-if="item.required ==='0'">(Opsional)</em>
+          </p>
+
+          <popup-picker class="inp" value-text-align='left' cancel-text='Batal' confirm-text='Konfirmasi' v-model="alldateArrval"  :data="[alldateArr]" show-name></popup-picker>
+          <i class="icon-right iconfont icon-youjiantou"></i>
+          <div class="br"></div>
+          
+        </div>-->
         <div class="mgt10 info-div"
-             v-if="item.input_type=='date'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+             v-if="item.input_type=='date'|| item.input_type == 'date_month'">
+          <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
           </p>
-          <!-- <popup-picker class="inp" value-text-align='left' @on-change="blurFun(item)" :data='item.value' cancel-text='Batal' confirm-text='Konfirmasi' v-model="item[item.code]" :placeholder="item.example_val "></popup-picker> -->
+          <!-- <popup-picker class="inp" value-text-align='left' :data='item.value' cancel-text='Batal' confirm-text='Konfirmasi' v-model="item[item.code]" :placeholder="item.example_val "></popup-picker> -->
           <datetime @on-change="blurFun(item)"
                     :default-selected-value="`${new Date()}`"
                     class="inp"
                     value-text-align="left"
+                    v-if="item.input_type=='date'"
                     :min-year="1900"
+                    :max-year="2100"
                     cancel-text="Batal"
                     format="DD-MM-YYYY"
                     confirm-text="Konfirmasi"
                     v-model="item[item.code]"
                     :placeholder="item.example_val "></datetime>
+          <datetime @on-change="blurFun(item)"
+                    :default-selected-value="`${new Date()}`"
+                    class="inp"
+                    value-text-align="left"
+                    v-if="item.input_type=='date_month'"
+                    :min-year="1900"
+                    cancel-text="Batal"
+                    format="MM-YYYY"
+                    confirm-text="Konfirmasi"
+                    v-model="item[item.code]"
+                    :placeholder="item.example_val "></datetime>
           <i class="icon-right iconfont icon-youjiantou"></i>
-          <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
+          <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              v-if="item.input_type=='select_province'||item.input_type=='select_city'||item.input_type=='select_large_district'||item.input_type=='select_small_district'">
-          <p :style="{color: item.vFlag===true?'red':'' }">
+          <p>
             {{item.title}}
             <em class="red1"
                 v-if="item.required ==='0'">(Opsional)</em>
           </p>
-          <!-- {{item.value}} -->
           <popup-picker class="inp"
                         value-text-align="left"
                         :data="item.value"
@@ -142,13 +152,13 @@
                           :placeholder="item.example_val "></popup-picker>
           </div>
           <i class="icon-right iconfont icon-youjiantou"></i>
-          <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
+          <div class="br"></div>
         </div>
 
         <div class="mgt10 info-div"
              @click="showAddress(index)"
              v-if="item.input_type=='address'">
-          <p :style="{color: item.vFlag===true?'red':'' }">{{item.title}}</p>
+          <p>{{item.title}}</p>
           <input v-if="!item[item.code].text"
                  class="inp"
                  type="text"
@@ -214,6 +224,7 @@
         <span class="sub-btn"
               @click="toSubmit()">Lanjut</span>
       </div>
+
       <BottomTips></BottomTips>
       <!-- <Kefuicon></Kefuicon> -->
     </div>
@@ -252,22 +263,24 @@ import devinfo from "../request/devinfo";
 import { toNext, toNexturl, getData, tocheckVal, todoaddress } from "./tonext";
 
 export default {
-  name: "WorkAndStuInfo",
+  name: "infoAdd",
   components: {
     PopupPicker,
-    Popup,
+    Radio,
     Datetime,
-    Radio
+    Popup
   },
   data() {
     return {
+      // alldateArrval: ["1"],
+      // alldateArr: [{ value: "1", name: "Tidak permanen" }, { value: "2", name: "Seumur hidup" }],
+
       // 表项目list
       infoList: '',
       o_push: "",
       sub_url: "",
-      refill_type: '',  // 是否重填字段
       imgkind: "",
-
+      refill_type: '',  // 是否重填字段
 
       showpopflag: false,
       num: 0,
@@ -281,11 +294,7 @@ export default {
   },
   async created() {
     await toNext(this);
-    getData(this, "/loan-info/get-contacts-info", 1);
-    try {
-      Cashcash.eventTrack('info_contack_view');
-    } catch (e) {
-    }
+    getData(this, "/loan-info/get-alternative-info");
   },
   mounted() {
     if (this.refill_type === 1) {
@@ -307,44 +316,33 @@ export default {
       }
     };
     window["GetDefaultPhone"] = url => {
-      // alert(JSON.stringify(url));
-      if (this.infoList[this.imgkind].check_type == 'name_disabled') {
-
-        this.infoList[this.imgkind][this.infoList[this.imgkind].code] = ((url.user_name + '') || '');
-        this.infoList[this.imgkind + 1][this.infoList[this.imgkind + 1].code] = ((url.user_number + '').replace(/[^0-9]/ig, ""));
-
-        this.focusFun(this.infoList[this.imgkind]);
-        this.focusFun(this.infoList[this.imgkind+1]);
-
-      } else {
-        if (this.infoList[this.imgkind - 1].input_type == 'text') {
-          this.infoList[this.imgkind - 1][this.infoList[this.imgkind - 1].code] = ((url.user_name + '') || '');
-          this.infoList[this.imgkind][this.infoList[this.imgkind].code] = ((url.user_number + '').replace(/[^0-9]/ig, ""));
-
-          this.focusFun(this.infoList[this.imgkind-1]);
-          this.focusFun(this.infoList[this.imgkind]);
-        } else {
-          this.infoList[this.imgkind][this.infoList[this.imgkind].code] = ((url.user_number + '').replace(/[^0-9]/ig, ""));
-
-          this.focusFun(this.infoList[this.imgkind]);
-        }
-
-      }
-
+      this.infoList[this.imgkind][this.infoList[this.imgkind].code] = ((url.user_number + '').replace(/[^0-9]/ig, ""));
     };
   },
   methods: {
-    // 消息提示
-    showmsg() {
-      this.$vux.toast.show({
-        text: 'Anda hanya boleh memilih nomor dari kontak anda.',
-        type: "text",
-        position: "middle",
-        width: "80%"
-      });
+
+    dateclick(item, index) {
+      console.log(item)
+      if (item[item.code] == "ktp") {
+        this.infoList.forEach(v => {
+          if (v.code == 'idExpiryDate') {
+            v.input_type = 'date'
+            v[v.code] = '';
+          }
+        })
+      } else {
+        this.infoList.forEach(v => {
+          if (v.code == 'idExpiryDate') {
+            v.input_type = ''
+            v[v.code] = '12-12-2289';
+          }
+        })
+      }
+      // this.alldateArrval == '2' ? item.input_type = '' : item.input_type = 'date';
+      // this.alldateArrval == '2' ? item[item.code] = '12-12-2289' : item[item.code] = '';
     },
 
-    // 电话号码选着
+    // 电话号码选着 
     toselectTel(index) {
       this.imgkind = index;
       try {
@@ -356,20 +354,22 @@ export default {
       }
     },
 
+    //输入监控操作
+    async blurFun(item) {
+      let info = await this.axios.post('/log/field-value',
+        { pro_code: 7500, order_no: this.$route.query.order_no || '', field_name: item.code, field_value: JSON.stringify(item[item.code]) }
+      );
+    },
+
     togetVal(item, val) {
       item[item.code] = val;
       this.blurFun(item)
     },
-    //输入监控操作
-    async blurFun(item) {
-      this.focusFun(item);
-      let info = await this.axios.post('/log/field-value', { pro_code: 4000, order_no: this.$route.query.order_no || '', field_name: item.code, field_value: JSON.stringify(item[item.code]) });
-      
-    },
-    async focusFun(item) {
-      item.vFlag = false;
-      this.$set(this.infoList,item,item);
-    },
+
+
+
+
+
     toOpenCammerSide(imgkind) {
       this.imgkind = imgkind;
       Cashcash.defaultCamera();
@@ -437,12 +437,9 @@ export default {
       this.$vux.loading.hide()
     },
 
+
     async toSubmit() {
       if ((await tocheckVal(this)) === false) return;
-      try {
-        Cashcash.eventTrack('info_contack_next_click');
-      } catch (e) {
-      }
       let data = {
         order: {},
         order_base: {}
@@ -470,25 +467,22 @@ export default {
       });
 
       data.order_no = this.$route.query.order_no;
-      data.pro_code = this.$route.query.pro_code || 4000;
+      data.pro_code = this.$route.query.pro_code || 7500;
       data.order_type = this.$route.query.order_type || 0;
-      // alert(JSON.stringify(data))
-
 
       data.order_base.application_amount = devinfo.application_amount;
       data.order_base.application_term = devinfo.application_term;
       data.order_base.is_reloan = devinfo.is_reloan;
-      //data.order_base.product_id =devinfo.product_id;
+      // data.order_base.product_id =devinfo.product_id;
       data.order_base.product_name = devinfo.product_name;
       // console.log(data)
+      // return
       data.o_push = this.o_push;
       toNexturl(this, this.sub_url || "/order/order-base-info", data);
     }
   }
 };
 </script>
-
-
 
 <style scoped>
 .hidden {
@@ -527,5 +521,4 @@ export default {
   color: #666;
 }
 </style>
-
 

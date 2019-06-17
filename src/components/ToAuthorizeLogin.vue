@@ -44,7 +44,6 @@
                  :disabled=showVerCode
                  :placeholder=passWordText>
         </span>
-        <!-- <span>321s</span> -->
       </div>
 
       <div class="br"
@@ -58,7 +57,6 @@
                  v-model="vercode"
                  placeholder="Verification code">
         </span>
-        <!-- <span>321s</span> -->
       </div>
 
     </div>

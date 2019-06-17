@@ -134,7 +134,7 @@ import { toNext, toNexturl, getData, tocheckVal } from "./tonext";
 import devinfo from "../request/devinfo";
 import baseinfo from "../request/baseinfo";
 export default {
-  name: "BindBankCard",
+  name: "infoBankCard",
   components: {
     PopupPicker
   },

@@ -7,13 +7,14 @@
     </cell>-->
     <div class="loading"
          v-if="!infoList">Loading....</div>
-    <van-notice-bar v-if="refill_type===1" mode="closeable">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</van-notice-bar>
+    
     <!-- <div class="top-tips"
          v-if="refill_type===1">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</div> -->
     <!-- <div class="top-tips"
          v-else>
       <p>Selesaikan informasi pekerjaan untuk keberhasilan pinjaman hingga 50%.</p>
     </div> -->
+    <van-notice-bar v-if="refill_type===1" mode="closeable">Silahkan isi informasi dengan sebenar benarnya, tingkat keberhasilan pinjaman meningkat hingga 20%</van-notice-bar>
     <van-notice-bar v-else mode="closeable">Selesaikan informasi pekerjaan untuk keberhasilan pinjaman hingga 50%.</van-notice-bar>
     <div class="info-main">
       <!-- <div class="list-toselect-txt" style="padding: 15px 0px 0px">
@@ -278,7 +279,7 @@ import devinfo from "../request/devinfo";
 import { toNext, toNexturl, getData, tocheckVal, todoaddress } from "./tonext";
 
 export default {
-  name: "WorkAndStuInfo",
+  name: "infoJob",
   components: {
     PopupPicker,
     Radio,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- 正在跳转 -->
+    <!-- 开始跳转 -->
   </div>
 </template>
 <script>
@@ -26,26 +26,26 @@ export default {
             break;
           case '1000':
             // 跳转基本信息
-            this.$router.replace({ path: '/BasicInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoBasic', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           case '1100':
             // 跳转用户信息
-            this.$router.replace({ path: '/UserInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoUser', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           case '1200':
             // 用户地址信息
             this.$router.replace({ path: '/UserAddress', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           case '2000':
-            this.$router.replace({ path: '/JobInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoJob', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           // 跳转工作学生基本信息
           case '8000':
-            this.$router.replace({ path: '/WorkAndStuInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoStudent', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           // 跳转 联系人信息
           case '4000':
-            this.$router.replace({ path: '/ContactInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoCont', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           // 跳转 活体检测
           case '6000':
@@ -53,11 +53,11 @@ export default {
             break;
           // 跳转 绑定英航卡
           case '7000':
-            this.$router.replace({ path: '/BindBankCard', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoBankCard', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           // 跳转 补充的信息
           case '7500':
-            this.$router.replace({ path: '/AddsomeInfo', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
+            this.$router.replace({ path: '/infoAdd', query: { order_no: info.data.order_no || '', pro_code: info.data.next_pro } })
             break;
           // 跳转 确认
           case '9000':

@@ -7,9 +7,9 @@ export default new Router({
   routes: [
     {
       //上传基础信息
-      path: "/BasicInfo",
-      name: "BasicInfo",
-      component: resolve => require(["@/components/BasicInfo.vue"], resolve),
+      path: "/infoBasic",
+      name: "infoBasic",
+      component: resolve => require(["@/components/infoBasic.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -40,9 +40,9 @@ export default new Router({
 
     {
       //绑定银行卡
-      path: "/BindBankCard",
-      name: "BindBankCard",
-      component: resolve => require(["@/components/BindBankCard.vue"], resolve),
+      path: "/infoBankCard",
+      name: "infoBankCard",
+      component: resolve => require(["@/components/infoBankCard.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -50,9 +50,9 @@ export default new Router({
     },
     //紧急联系人
     {
-      path: "/AddsomeInfo",
-      name: "AddsomeInfo",
-      component: resolve => require(["@/components/AddsomeInfo.vue"], resolve),
+      path: "/infoAdd",
+      name: "infoAdd",
+      component: resolve => require(["@/components/infoAdd.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -60,9 +60,9 @@ export default new Router({
     },
     //用户信息
     {
-      path: "/UserInfo",
-      name: "UserInfo",
-      component: resolve => require(["@/components/UserInfo.vue"], resolve),
+      path: "/infoUser",
+      name: "infoUser",
+      component: resolve => require(["@/components/infoUser.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -80,9 +80,9 @@ export default new Router({
     },
     //工作证明
     {
-      path: "/JobInfo",
-      name: "JobInfo",
-      component: resolve => require(["@/components/JobInfo.vue"], resolve),
+      path: "/infoJob",
+      name: "infoJob",
+      component: resolve => require(["@/components/infoJob.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -90,10 +90,10 @@ export default new Router({
     },
     //学生证明
     {
-      path: "/WorkAndStuInfo",
-      name: "WorkAndStuInfo",
+      path: "/infoStudent",
+      name: "infoStudent",
       component: resolve =>
-        require(["@/components/WorkAndStuInfo.vue"], resolve),
+        require(["@/components/infoStudent.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -101,9 +101,9 @@ export default new Router({
     },
     {
       //选择联系人
-      path: "/ContactInfo",
-      name: "ContactInfo",
-      component: resolve => require(["@/components/ContactInfo.vue"], resolve),
+      path: "/infoCont",
+      name: "infoCont",
+      component: resolve => require(["@/components/infoCont.vue"], resolve),
       options: {
         history: true,
         pushState: true
@@ -217,10 +217,10 @@ export default new Router({
     },
     // 九项基础信息填写
     {
-      path: "/NineBasicInfo", 
-      name: "NineBasicInfo",
+      path: "/infoNineBasic", 
+      name: "infoNineBasic",
       component: resolve =>
-        require(["@/components/NineBasicInfo.vue"], resolve),
+        require(["@/components/infoNineBasic.vue"], resolve),
       options: {
         history: true,
         pushState: true

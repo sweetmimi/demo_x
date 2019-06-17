@@ -49,7 +49,7 @@
                  @focus="focusFun(item)"
                  v-model="item[item.code]"
                  v-else
-                 :placeholder="item.title ">
+                 :placeholder="item.title">
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
 
