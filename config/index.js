@@ -10,9 +10,8 @@ module.exports = {
     assetsPublicPath: "/",
     proxyTable: {
       "/apis": {
-        //开发环境
+         //开发环境
          //target: "http://devloanapi.luno.id",
-         //
         //测试环境
          target: "http://testloanapi.luno.id",
         secure: false,
