@@ -7,7 +7,7 @@
 <script>
 import devinfo from './request/devinfo'
 
-const packgename =
+var packgename =
   process.env.NODE_ENV === 'production' ? devinfo.app_package : ''
 export default {
   name: 'App',
