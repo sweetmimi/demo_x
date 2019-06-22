@@ -22,7 +22,7 @@ export default {
         // alert(info.data.order_no)
         switch ('' + info.data.next_pro) {
           case '-1000':
-            Cashcash.finishWeb()
+            AndroidH.finishWeb()
             break;
           case '1000':
             // 跳转基本信息
@@ -81,7 +81,7 @@ export default {
             break;
 
           default:
-            Cashcash.finishWeb()
+            AndroidH.finishWeb()
             break;
         }
 
@@ -89,7 +89,7 @@ export default {
       } else {
         this.$vux.toast.show({ text: info.code + info.message, type: "text" });
         setTimeout(() => {
-          Cashcash.finishWeb()
+          AndroidH.finishWeb()
         }, 2000)
       }
       this.$vux.loading.hide();

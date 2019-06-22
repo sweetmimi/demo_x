@@ -16,7 +16,7 @@
         <div v-if='infoData.status=="80"' style="height:100px">
          <van-notice-bar mode="closeable">Informasi sedang dikirim, harap tunggu.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
-            <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_under.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FBA740">Info Tambahan</p>
         </div>
@@ -24,16 +24,16 @@
         <div v-if='infoData.status=="80"&&infoData.order_error==1&&infoData.resubmit==1' style="height:100px">
          <van-notice-bar mode="closeable">Kirim informasi gagal, silahkan kirim lagi dari awal.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
-            <img src="../../dist/static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;col0or:#27C153">Silahkan kirim lagi</p>
         </div>
         <!-- 等待审核 -->
         <div v-if='infoData.status=="90"' style="height:100px">
-         <van-notice-bar mode="closeable">Pengajuan sedang di verifikasi，mohon menunggu.</van-notice-bar>
+         <van-notice-bar mode="closeable">Pengajuan selesai, proses max 2 hari, Pastikan ponsel aktif.</van-notice-bar>
 
           <div style="width:50px;height:50px;margin:0px auto 0;padding-top:20px">
-            <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_under.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FBA740">Dalam Verifikasi</p>
         </div>
@@ -41,7 +41,7 @@
         <div v-if='infoData.status=="110"' style="height:100px">
          <van-notice-bar mode="closeable">Maaf, pengajuan Anda gagal.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
-            <img src="../../dist/static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FF4D4D">Verifikasi Gagal</p>
         </div>
@@ -49,7 +49,7 @@
         <div v-if='infoData.status=="100"' style="height:100px">
          <van-notice-bar mode="closeable">Selamat pengajuan Anda berhasil, Sistem sedang mencairkan dana Anda, mohon tunggu.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;padding-top:20px">
-            <img src="../../dist/static/images/revie_pass.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_pass.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#27C153">Disetujui</p>
         </div>
@@ -57,14 +57,14 @@
         <div v-if='infoData.status=="99"' style="height:100px">
          <van-notice-bar mode="closeable">Isi ulang informasi untuk pengajuan.</van-notice-bar>
           <div style="width:50px;height:50px;margin:0 auto;">
-            <img src="../../dist/static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_agn.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#27C153">Isi ulang info</p>
         </div>
         <!-- 借款取消 -->
         <div v-if='infoData.status=="161"' style="height:100px">
           <div style="width:50px;height:50px;margin:0 auto;">
-            <img src="../../dist/static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FF4D4D">Batalkan pinjaman</p>
         </div>
@@ -73,7 +73,7 @@
          <van-notice-bar mode="closeable">Setelah tinjauan, pinjaman max Rp {{infoData.application_amount}}. Konfirmasi pengajuan segera.</van-notice-bar>
 
           <div style="width:50px;height:50px;margin:0 auto;padding-top:20px">
-            <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_under.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FBA740">Konfirmasi Pinjaman</p>
         </div>
@@ -82,7 +82,7 @@
          <van-notice-bar mode="closeable">Pengajuan selesai. Harap sabar, uang akan ditransfer.</van-notice-bar>
 
           <div style="width:50px;height:50px;margin:0 auto;padding-top:20px">
-            <img src="../../dist/static/images/revie_under.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_under.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FBA740">Konfirmasi Pinjaman</p>
         </div>
@@ -91,7 +91,7 @@
          <van-notice-bar mode="closeable"> {{infoData.msg||'Maaf, pengajuan pinjaman anda gagal. Mohon periksa kembali informasi bank.'}}</van-notice-bar>
 
           <div style="width:50px;height:50px;margin:0 auto;padding-top:20px;">
-            <img src="../../dist/static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
+            <img src="../../static/images/revie_fail.png" alt="" style="wight:100%;height:100%">
           </div>
           <p style="text-align: center;color:#FF4D4D">Pembayaran Gagal</p>
         </div>
@@ -156,7 +156,12 @@
       <div class="info"
            v-if='infoData.status=="90"&&appid1=="10004"'>
         <div class="br"></div>
-        <p style="color: #999">Pengajuan sedang di verifikasi，mohon menunggu.</p>
+        <p style="color: #999">Pengajuan selesai, proses max 2 hari, Pastikan ponsel aktif.</p>
+      </div>
+      <div class="info"
+           v-if='infoData.status=="90"&&appid1=="20004"'>
+        <div class="br"></div>
+        <p style="color: #999">Pengajuan selesai, proses max 2 hari, Pastikan ponsel aktif.</p>
       </div>
 
       <div class="info"
@@ -307,7 +312,7 @@
                      alt="">
                 <h4>{{item.product_name}}</h4>
                 <span>{{item.total_score}}<i><img width="100%"
-                                                  src="../../dist/static/images/star.png"
+                                                  src="../../static/images/star.png"
                                                   alt=""> </i></span>
               </div>
               <em>
@@ -612,13 +617,13 @@ export default {
     this.getRecomData();
 
     try {
-      Cashcash.eventTrack('order_status_view');
+      AndroidH.eventTrack('order_status_view');
     } catch (e) {
     }
   },
   mounted() {
 
-    Cashcash.doShowBack(true, '');
+    AndroidH.doShowBack(true, '');
 
     window["ToshowTjlist"] = () => {
 
@@ -668,9 +673,9 @@ export default {
           // let aa = parseInt(localStorage.getItem(`${this.infoData.order_no}-80`) || 0) + 1
           // localStorage.setItem(`${this.infoData.order_no}-80`, aa);
           // if (localStorage.getItem(`${this.infoData.order_no}-80`) < 4) {
-          //   Cashcash.doShowTjlist(true)
+          //   AndroidH.doShowTjlist(true)
           // } else {
-          //   Cashcash.doShowTjlist(false)
+          //   AndroidH.doShowTjlist(false)
           // }
       
         }
@@ -682,9 +687,9 @@ export default {
       //     let aa = parseInt(localStorage.getItem(`${this.infoData.order_no}-110`) || 0) + 1
       //     localStorage.setItem(`${this.infoData.order_no}-110`, aa);
       //     if (localStorage.getItem(`${this.infoData.order_no}-110`) < 4) {
-      //       Cashcash.doShowTjlist(true)
+      //       AndroidH.doShowTjlist(true)
       //     } else {
-      //       Cashcash.doShowTjlist(false)
+      //       AndroidH.doShowTjlist(false)
       //     }
       //   }
       // }
@@ -748,18 +753,18 @@ export default {
     },
 
     tourl() {
-      Cashcash.finishWeb(); // 关闭当前页面方法
-      // Cashcash.startMyLoan()  // 跳到自己得订单借款列表页面方法
-      Cashcash.startProductLoan(baseinfo.appid + '')  //对应得产品借款页面方法
+      AndroidH.finishWeb(); // 关闭当前页面方法
+      // AndroidH.startMyLoan()  // 跳到自己得订单借款列表页面方法
+      AndroidH.startProductLoan(baseinfo.appid + '')  //对应得产品借款页面方法
       // this.$router.push({path:'/PayStep2',query:{order_no:this.infoData.order_no}})
     },
 
     //
     toappidpage(id) {
-      Cashcash.startProductLoan(id + '')  //对应得产品借款页面方法
+      AndroidH.startProductLoan(id + '')  //对应得产品借款页面方法
     },
     toappidpageclose() {
-      Cashcash.doShowTjlist(false)
+      AndroidH.doShowTjlist(false)
       this.showkap = false;
     },
 
@@ -767,8 +772,8 @@ export default {
     torecord(type) {
       if (type === 1) {
         try {
-          if (typeof eval(Cashcash.startMyWalletPage) == "function") {
-            Cashcash.startMyWalletPage(1);
+          if (typeof eval(AndroidH.startMyWalletPage) == "function") {
+            AndroidH.startMyWalletPage(1);
           } else {
 
             this.showmsg("none function")
@@ -784,8 +789,8 @@ export default {
     async toSilahkan() {
       if (this.infoData.device_conf) {
         try {
-          if (typeof eval(Cashcash.uploadDeviceInfo) == "function") {
-            Cashcash.uploadDeviceInfo(JSON.stringify(this.infoData.device_conf), this.$route.query.order_no, baseinfo.appid);
+          if (typeof eval(AndroidH.uploadDeviceInfo) == "function") {
+            AndroidH.uploadDeviceInfo(JSON.stringify(this.infoData.device_conf), this.$route.query.order_no, baseinfo.appid);
           } else {
             this.showmsg("none function")
             // alert("none function");
@@ -796,7 +801,7 @@ export default {
 
       }
       try {
-        Cashcash.eventTrack('order_status_resubmit_click');
+        AndroidH.eventTrack('order_status_resubmit_click');
       } catch (e) {
       }
       if (this.infoData.order_error === 1) {
@@ -825,7 +830,7 @@ export default {
       this.$router.push({ path: '/infoBankCard', query: { order_no: this.infoData.order_no } })
     },
     toContectKf() {
-      Cashcash.startCustomerService()
+      AndroidH.startCustomerService()
     }
   }
   // methods end

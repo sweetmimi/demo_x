@@ -154,7 +154,7 @@ export default {
     await toNext(this);
     await getData(this, "/loan-info/get-bank-info");
     try {
-      Cashcash.eventTrack("info_bank_view");
+      AndroidH.eventTrack("info_bank_view");
     } catch (e) {}
     if (this.bindappid === "10001") {
       this.infoList.push({
@@ -184,7 +184,7 @@ export default {
     }
   },
   mounted() {
-    Cashcash.doShowBack(true);
+    AndroidH.doShowBack(true);
   },
   methods: {
     //输入监控操作
@@ -206,7 +206,7 @@ export default {
     async toSubmit() {
       if ((await tocheckVal(this)) === false) return;
       try {
-        Cashcash.eventTrack("info_bank_next_click");
+        AndroidH.eventTrack("info_bank_next_click");
       } catch (e) {}
       if (this.bindappid === "10001") {
         let i = 0;

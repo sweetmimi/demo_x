@@ -358,23 +358,23 @@ const vm = {
     getData(this, "/user/get-loan-field");
     // this.getProinfo();
     try {
-      Cashcash.eventTrack('info_basic_view');
+      AndroidH.eventTrack('info_basic_view');
     } catch (e) {
     }
   },
   mounted() {
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
+        AndroidH.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
       try {
-        // Cashcash.doShowBack(true, 'Cukup isi informasi sekali untuk mengajukan beberapa produk');
-        Cashcash.doShowBack(true, 'Hanya 1 tahap lagi Anda bisa mendapatkan pinjaman, Anda yakin ingin keluar ?');
+        // AndroidH.doShowBack(true, 'Cukup isi informasi sekali untuk mengajukan beberapa produk');
+        AndroidH.doShowBack(true, 'Hanya 1 tahap lagi Anda bisa mendapatkan pinjaman, Anda yakin ingin keluar ?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     }
 
@@ -414,8 +414,8 @@ const vm = {
     toselectTel(index) {
       this.imgkind = index;
       try {
-        if (typeof eval(Cashcash.choiseContacts) == "function") {
-          Cashcash.choiseContacts();
+        if (typeof eval(AndroidH.choiseContacts) == "function") {
+          AndroidH.choiseContacts();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -432,7 +432,7 @@ const vm = {
     },
 
     getProinfo() {
-      this.proInfo = JSON.parse(Cashcash.getLoanDeviceInfo());
+      this.proInfo = JSON.parse(AndroidH.getLoanDeviceInfo());
     },
     //输入监控操作
     async blurFun(item) {
@@ -452,8 +452,8 @@ const vm = {
     toOpenCammerFront() {
 
       try {
-        if (typeof eval(Cashcash.uploadIDCardFront) == "function") {
-          Cashcash.uploadIDCardFront();
+        if (typeof eval(AndroidH.uploadIDCardFront) == "function") {
+          AndroidH.uploadIDCardFront();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -463,8 +463,8 @@ const vm = {
     toOpenCammerSide() {
 
       try {
-        if (typeof eval(Cashcash.uploadIDCardBack) == "function") {
-          Cashcash.uploadIDCardBack();
+        if (typeof eval(AndroidH.uploadIDCardBack) == "function") {
+          AndroidH.uploadIDCardBack();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -473,13 +473,13 @@ const vm = {
     },
     toOpenCammerHand() {
       try {
-        if (typeof eval(Cashcash.uploadFullPhoto) == "function") {
-          Cashcash.uploadFullPhoto();
+        if (typeof eval(AndroidH.uploadFullPhoto) == "function") {
+          AndroidH.uploadFullPhoto();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
       }
-      // Cashcash.uploadFullPhoto();
+      // AndroidH.uploadFullPhoto();
     },
 
     todoaddress(type, kind, index) {
@@ -500,7 +500,7 @@ const vm = {
       }
       // 埋点统计上报
       try {
-        Cashcash.eventTrack('info_ninebasicinfo_click');
+        AndroidH.eventTrack('info_ninebasicinfo_click');
       } catch (e) {
 
       }
@@ -540,8 +540,9 @@ const vm = {
         let name = location.origin
 
         if (this.$route.query.urltype == 1) {
-          if(devinfo.app_package=='com.beard.starfish'||devinfo.app_package=='com.blade.ice'){
-            Cashcash.finishWeb();
+          // if(devinfo.app_package=='com.beard.starfish'||devinfo.app_package=='com.blade.ice'){
+            if(devinfo.app_package=='com.ahudianna.skad'||devinfo.app_package=='com.blade.ice'){
+            AndroidH.finishWeb();
           }else {
             location.href = `${name}/loss_activity/#/loannum`
           }

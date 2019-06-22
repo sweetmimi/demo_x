@@ -21,7 +21,7 @@ const baseinfo1 = {
 
   version: 70,
   guid: "ebbbbabb15d13790e371bc15d1a59089",
-  app_package: "com.firestorm.sea.cashcash",
+  app_package: "com.ahudianna.skad",
   userid: "6e331d49c1616e66449f297e2dff0cb0"
   // userid: "3a2b615169ace063981d0195818fbbe0"
   // userid: "3a2b615169ace063981d0195818fbbe7"

@@ -107,8 +107,8 @@ export default {
     async toclient(tasktype) {
       let info = await this.axios.post("/user/add-user-social", { order_no: this.$route.query.order_no, taskType: tasktype })
       try {
-        if (typeof eval(Cashcash.startMoXieClient) == "function") {
-          Cashcash.startMoXieClient(this.userid, apiKey, tasktype);
+        if (typeof eval(AndroidH.startMoXieClient) == "function") {
+          AndroidH.startMoXieClient(this.userid, apiKey, tasktype);
         } else {
           this.$vux.toast.show({ text: "none function", type: "text" });
           this.tourl()

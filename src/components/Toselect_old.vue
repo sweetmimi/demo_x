@@ -335,9 +335,9 @@ export default {
   },
   mounted() {
     try {
-      Cashcash.doShowBack(true, 'Unggah bukti pekerjaan untuk tingkatkan keberhasilan pinjaman hingga 80%，Anda yakin mau keluar? ');
+      AndroidH.doShowBack(true, 'Unggah bukti pekerjaan untuk tingkatkan keberhasilan pinjaman hingga 80%，Anda yakin mau keluar? ');
     } catch (e) {
-      Cashcash.doShowBack(true);
+      AndroidH.doShowBack(true);
     }
 
     //  获取相机图片
@@ -431,8 +431,8 @@ export default {
       this.imgkind = index;
       if (item.input_type == 'photo') {
         try {
-          if (typeof eval(Cashcash.defaultCamera) == "function") {
-            Cashcash.defaultCamera();
+          if (typeof eval(AndroidH.defaultCamera) == "function") {
+            AndroidH.defaultCamera();
           }
         } catch (e) {
           alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -441,13 +441,13 @@ export default {
       }
       if (item.input_type == 'album') {
         try {
-          if (typeof eval(Cashcash.openAlbum) == "function") {
-            Cashcash.openAlbum()
+          if (typeof eval(AndroidH.openAlbum) == "function") {
+            AndroidH.openAlbum()
           } else {
-            Cashcash.defaultCamera();
+            AndroidH.defaultCamera();
           }
         } catch (e) {
-          Cashcash.defaultCamera();
+          AndroidH.defaultCamera();
         }
 
       }
@@ -455,19 +455,19 @@ export default {
     toOpenFun1(typenum) {
       if (typenum == 'bank_statement_img') {
         try {
-          if (typeof eval(Cashcash.openAlbum) == "function") {
-            Cashcash.openAlbum()
+          if (typeof eval(AndroidH.openAlbum) == "function") {
+            AndroidH.openAlbum()
           } else {
-            Cashcash.defaultCamera();
+            AndroidH.defaultCamera();
           }
         } catch (e) {
-          Cashcash.defaultCamera();
+          AndroidH.defaultCamera();
         }
 
       } else {
         try {
-          if (typeof eval(Cashcash.defaultCamera) == "function") {
-            Cashcash.defaultCamera();
+          if (typeof eval(AndroidH.defaultCamera) == "function") {
+            AndroidH.defaultCamera();
           }
         } catch (e) {
           alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");

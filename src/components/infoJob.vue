@@ -94,7 +94,8 @@
                         confirm-text="Konfirmasi"
                         v-model="item[item.code]"
                         :data="[item.valueArr]"
-                        :placeholder="item.title "></popup-picker>
+                        :placeholder="item.title ">
+          </popup-picker>
           <i class="icon-right iconfont icon-youjiantou"></i>
           <div :class="[ item.vFlag===true ? 'br-red' : 'br']"></div>
         </div>
@@ -313,7 +314,7 @@ export default {
     await toNext(this);
     getData(this, "/loan-info/get-job-info", 1);
     try {
-      Cashcash.eventTrack('info_career_view');
+      AndroidH.eventTrack('info_career_view');
     } catch (e) {
     }
   },
@@ -321,15 +322,15 @@ export default {
 
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
+        AndroidH.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
       try {
-        Cashcash.doShowBack(true, 'Selesaikan informasi pekerjaan untuk keberhasilan pinjaman hingga 50%. Anda yakin mau keluar ? ');
+        AndroidH.doShowBack(true, 'Selesaikan informasi pekerjaan untuk keberhasilan pinjaman hingga 50%. Anda yakin mau keluar ? ');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     }
 
@@ -374,14 +375,14 @@ export default {
 
     toOpenCammerSide(imgkind) {
       this.imgkind = imgkind;
-      Cashcash.defaultCamera();
+      AndroidH.defaultCamera();
     },
     // 电话号码选着
     toselectTel(index) {
       this.imgkind = index;
       try {
-        if (typeof eval(Cashcash.choiseContacts) == "function") {
-          Cashcash.choiseContacts();
+        if (typeof eval(AndroidH.choiseContacts) == "function") {
+          AndroidH.choiseContacts();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -462,7 +463,7 @@ export default {
     async toSubmit() {
       if ((await tocheckVal(this)) === false) return;
       try {
-        Cashcash.eventTrack('info_career_next_click');
+        AndroidH.eventTrack('info_career_next_click');
       } catch (e) {
       }
       let data = {

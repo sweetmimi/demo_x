@@ -158,8 +158,8 @@ export default {
       let info = await this.axios.post("/user/add-user-social", { order_no: this.$route.query.order_no, taskType: tasktype })
       this.$vux.loading.hide()
       try {
-        if (typeof eval(Cashcash.startMoXieClient) == "function") {
-          Cashcash.startMoXieClient(this.userid, apiKey, tasktype);
+        if (typeof eval(AndroidH.startMoXieClient) == "function") {
+          AndroidH.startMoXieClient(this.userid, apiKey, tasktype);
         } else {
           this.showmsg('none function');
           this.tourl()
@@ -174,7 +174,7 @@ export default {
     async toSubmit() {
       // if ((await tocheckVal(this)) === false) return;
       // try {
-      //   Cashcash.eventTrack('info_toauth_next_click');
+      //   AndroidH.eventTrack('info_toauth_next_click');
       // } catch (e) {
       // }
 

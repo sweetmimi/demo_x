@@ -283,19 +283,19 @@ export default {
     await toNext(this);
     getData(this, "/loan-info/get-contacts-info", 1);
     try {
-      Cashcash.eventTrack('info_contack_view');
+      AndroidH.eventTrack('info_contack_view');
     } catch (e) {
     }
   },
   mounted() {
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
+        AndroidH.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
-      Cashcash.doShowBack(true);
+      AndroidH.doShowBack(true);
     }
     window["GetDefaultCameraImg"] = url => {
       for (let i = 0, n = this.infoList.length; i < n; i++) {
@@ -348,8 +348,8 @@ export default {
     toselectTel(index) {
       this.imgkind = index;
       try {
-        if (typeof eval(Cashcash.choiseContacts) == "function") {
-          Cashcash.choiseContacts();
+        if (typeof eval(AndroidH.choiseContacts) == "function") {
+          AndroidH.choiseContacts();
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -372,7 +372,7 @@ export default {
     },
     toOpenCammerSide(imgkind) {
       this.imgkind = imgkind;
-      Cashcash.defaultCamera();
+      AndroidH.defaultCamera();
     },
 
     todoaddress(type, kind, index) {
@@ -440,7 +440,7 @@ export default {
     async toSubmit() {
       if ((await tocheckVal(this)) === false) return;
       try {
-        Cashcash.eventTrack('info_contack_next_click');
+        AndroidH.eventTrack('info_contack_next_click');
       } catch (e) {
       }
       let data = {

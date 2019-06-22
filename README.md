@@ -1,6 +1,6 @@
 # cashcash_api_vue
 
-> Cashcash api merchant access and data information submission processing system
+> AndroidH api merchant access and data information submission processing system
 
 ## cashcash 接入 api 项目，所有马甲包开发的对应的老版本 sdk 项目
 

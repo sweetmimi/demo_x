@@ -366,23 +366,23 @@ const vm = {
 
     this.getProinfo();
     try {
-      Cashcash.eventTrack('info_basic_view');
+      AndroidH.eventTrack('info_basic_view');
     } catch (e) {
     }
   },
   mounted() {
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Informasi tidak diberikan kepada pihak ketiga, mohon dilengkapi. Apakah yakin Anda ingin keluar?');
+        AndroidH.doShowBack(true, 'Informasi tidak diberikan kepada pihak ketiga, mohon dilengkapi. Apakah yakin Anda ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
       try {
-        // Cashcash.doShowBack(true, 'Cukup isi informasi sekali untuk mengajukan beberapa produk');
-        Cashcash.doShowBack(true, 'Isi informasi sekali untuk mengajukan beberapa produk. Yakin keluar?');
+        // AndroidH.doShowBack(true, 'Cukup isi informasi sekali untuk mengajukan beberapa produk');
+        AndroidH.doShowBack(true, 'Isi informasi sekali untuk mengajukan beberapa produk. Yakin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     }
 
@@ -473,8 +473,8 @@ const vm = {
     toselectTel(index) {
       this.imgkind = index;
       try {
-        if (typeof eval(Cashcash.choiseContacts) == "function") {
-          Cashcash.choiseContacts();
+        if (typeof eval(AndroidH.choiseContacts) == "function") {
+          AndroidH.choiseContacts();
         }
       } catch (e) {
         this.showmsg("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -513,7 +513,7 @@ const vm = {
           this.infoList[i][this.infoList[i].code] = '';
           // this.toOpenCammerFront()
           // try {
-          //   Cashcash.getFaceComparisonFailure(true)
+          //   AndroidH.getFaceComparisonFailure(true)
           // } catch (e) {
           //   this.showmsg("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
           // }
@@ -532,7 +532,7 @@ const vm = {
     },
 
     getProinfo() {
-      this.proInfo = JSON.parse(Cashcash.getLoanDeviceInfo());
+      this.proInfo = JSON.parse(AndroidH.getLoanDeviceInfo());
     },
     //输入监控操作
     async blurFun(item) {
@@ -556,13 +556,13 @@ const vm = {
     },
 
     toOpenCammerFront() {
-      Cashcash.uploadIDCardFront();
+      AndroidH.uploadIDCardFront();
     },
     toOpenCammerSide() {
-      Cashcash.uploadIDCardBack();
+      AndroidH.uploadIDCardBack();
     },
     toOpenCammerHand() {
-      Cashcash.uploadFullPhoto();
+      AndroidH.uploadFullPhoto();
     },
 
     todoaddress(type, kind, index) {
@@ -580,7 +580,7 @@ const vm = {
       }
       // 埋点爬虫统计上报
       try {
-        Cashcash.eventTrack('info_basic_next_click');
+        AndroidH.eventTrack('info_basic_next_click');
       } catch (e) {
 
       }

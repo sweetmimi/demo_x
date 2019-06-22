@@ -165,7 +165,7 @@ export default {
       this.getDataPage();
     },
     toContectKf() {
-      Cashcash.startCustomerService()
+      AndroidH.startCustomerService()
     },
 
     tourl(value) {

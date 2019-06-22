@@ -187,12 +187,12 @@ export default {
     await toNext(this);
     this.getDataPage();
     try {
-      Cashcash.eventTrack('contract_view');
+      AndroidH.eventTrack('contract_view');
     } catch (e) {
     }
   },
   mounted() {
-    Cashcash.doShowBack(true, '');
+    AndroidH.doShowBack(true, '');
   },
   methods: {
     showTextFun() {
@@ -254,7 +254,7 @@ export default {
         return;
       }
       try {
-        Cashcash.eventTrack('contract_next_click');
+        AndroidH.eventTrack('contract_next_click');
       } catch (e) {
       }
       let data = {

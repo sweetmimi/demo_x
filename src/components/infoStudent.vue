@@ -206,12 +206,12 @@ export default {
 
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
+        AndroidH.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
-      Cashcash.doShowBack(true);
+      AndroidH.doShowBack(true);
     }
 
     window["GetDefaultCameraImg"] = url => {
@@ -225,7 +225,7 @@ export default {
   methods: {
     toOpenCammerSide(imgkind) {
       this.imgkind = imgkind;
-      Cashcash.defaultCamera();
+      AndroidH.defaultCamera();
     },
 
     todoaddress(type, kind, index) {

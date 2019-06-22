@@ -19,6 +19,10 @@ export default {
   created() {
 
     switch (packgename + '') {
+      case 'com.ahudianna.skad':
+        document.title = 'Cashstore'
+        this.theme = 'themecashstore'
+        break
       case 'com.firestorm.sea.pinjam':
         document.title = 'Cashstore'
         this.theme = 'themecashstore'
@@ -156,7 +160,7 @@ export default {
         this.theme = 'themepinjamanpohon'
         break
       case 'id.cash.second':
-        document.title = 'Cashcash'
+        document.title = 'AndroidH'
         this.theme = 'themesecondcashcash'
         break
       case 'id.sahabat.dana':
@@ -264,7 +268,7 @@ export default {
         break
 
       case 'id.shac.third':
-        document.title = 'Cashcash'
+        document.title = 'AndroidH'
         this.theme = 'themecashcash2'
         break
 

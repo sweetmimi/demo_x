@@ -429,7 +429,7 @@ export default {
           appname = 'Pohon Pinjaman';
           break;
         case 'id.cash.second':
-          appname = 'Cashcash';
+          appname = 'AndroidH';
           break;
         case 'id.sahabat.dana':
           appname = 'DanaSahabat';

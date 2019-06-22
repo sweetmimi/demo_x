@@ -24,8 +24,8 @@ export default {
     kefufun() {
       try {
         location.href = 'http://bit.ly/2OIFy9j'
-        // if (typeof eval(Cashcash.startCustomerService) == "function") {
-        //     Cashcash.startCustomerService();
+        // if (typeof eval(AndroidH.startCustomerService) == "function") {
+        //     AndroidH.startCustomerService();
         // }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");

@@ -438,9 +438,9 @@ export default {
 
   mounted() {
     try {
-      Cashcash.doShowBack(true, 'Informasi penting. Jika tidak isi, Anda tidak akan dapat persetujuan. Yakin keluar?');
+      AndroidH.doShowBack(true, 'Informasi penting. Jika tidak isi, Anda tidak akan dapat persetujuan. Yakin keluar?');
     } catch (e) {
-      Cashcash.doShowBack(true);
+      AndroidH.doShowBack(true);
     }
 
     //  获取相机图片
@@ -588,8 +588,8 @@ export default {
 
       // if (item.input_type == 'photo') {
       try {
-        if (typeof eval(Cashcash.defaultCamera) == "function") {
-          Cashcash.defaultCamera();
+        if (typeof eval(AndroidH.defaultCamera) == "function") {
+          AndroidH.defaultCamera();
         }
       } catch (e) {
         this.showmsg("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -598,13 +598,13 @@ export default {
       // }
       // if (item.input_type == 'album') {
       //   try {
-      //     if (typeof eval(Cashcash.openAlbum) == "function") {
-      //       Cashcash.openAlbum()
+      //     if (typeof eval(AndroidH.openAlbum) == "function") {
+      //       AndroidH.openAlbum()
       //     } else {
-      //       Cashcash.defaultCamera();
+      //       AndroidH.defaultCamera();
       //     }
       //   } catch (e) {
-      //     Cashcash.defaultCamera();
+      //     AndroidH.defaultCamera();
       //   }
       // }
     },

@@ -95,8 +95,8 @@ export default {
 
         if (info.data.bio_values > 0) {  //使用后台数值比对
           try {
-            if (typeof eval(Cashcash.getCompareValue) == "function") {
-              Cashcash.getCompareValue(info.data.bio_values)
+            if (typeof eval(AndroidH.getCompareValue) == "function") {
+              AndroidH.getCompareValue(info.data.bio_values)
             }
           } catch (e) { }
         }
@@ -104,44 +104,44 @@ export default {
 
         if (info.data.face_check == 1) {  // 是否开启人脸比对  face_check 1 开启，否则
           try {
-            if (typeof eval(Cashcash.doCheckLive) == "function") {
+            if (typeof eval(AndroidH.doCheckLive) == "function") {
               this.tocount(2, 2, 0)
-              Cashcash.doCheckLive(true)
+              AndroidH.doCheckLive(true)
             }
           } catch (e) { }
 
         } else {
           try {
-            if (typeof eval(Cashcash.doCheckLive) == "function") {
-              Cashcash.doCheckLive(false)
+            if (typeof eval(AndroidH.doCheckLive) == "function") {
+              AndroidH.doCheckLive(false)
             }
           } catch (e) { }
         }
 
 
       }
-      // Cashcash.liveness();
-      // info.data.bio_actions ? Cashcash.liveness(info.data.bio_actions) : Cashcash.liveness();
+      // AndroidH.liveness();
+      // info.data.bio_actions ? AndroidH.liveness(info.data.bio_actions) : AndroidH.liveness();
 
       this.tocount(2, 1, 0)
       if (info.data.bio_actions) {
         try {
-          if (typeof eval(Cashcash.livenessByActions) == "function") {
-            Cashcash.livenessByActions(info.data.bio_actions)
+          if (typeof eval(AndroidH.livenessByActions) == "function") {
+            AndroidH.livenessByActions(info.data.bio_actions)
           } else {
-            Cashcash.liveness();
+            AndroidH.liveness();
           }
         } catch (e) {
-          Cashcash.liveness();
+          AndroidH.liveness();
         }
       } else {
-        Cashcash.liveness();
+        AndroidH.liveness();
       }
 
     },
 
     // livenessFun() {
-    //   Cashcash.liveness();
+    //   AndroidH.liveness();
 
     // },
 

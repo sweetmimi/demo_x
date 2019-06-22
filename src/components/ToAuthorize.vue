@@ -185,8 +185,8 @@ const vm = {
         // let info = await axios_spider.post("/moxie/notify-init", { order_no: this.$route.query.order_no, taskType: c.f_channel_code })
         // this.$vux.loading.hide()
         try {
-          if (typeof eval(Cashcash.startMoXieClient) == "function") {
-            Cashcash.startMoXieClient(baseinfo.userid, 'b3db12ec11d84d4bb12190882754b8bd', c.f_channel_code);
+          if (typeof eval(AndroidH.startMoXieClient) == "function") {
+            AndroidH.startMoXieClient(baseinfo.userid, 'b3db12ec11d84d4bb12190882754b8bd', c.f_channel_code);
           } else {
             this.showmsg('none function');
           }
@@ -198,8 +198,8 @@ const vm = {
       //类型是npwp或者其他，调用自有sdk
       if (c.f_channel_type === '2') {
         try {
-          if (typeof eval(Cashcash.startSDK) == "function") {
-            Cashcash.startSDK(baseinfo.userid, this.orderInfo.user_mobile,
+          if (typeof eval(AndroidH.startSDK) == "function") {
+            AndroidH.startSDK(baseinfo.userid, this.orderInfo.user_mobile,
               this.orderInfo.user_name, this.orderInfo.user_idcard, c.f_channel_code, c.f_channel_type);
           } else {
             this.showmsg('none function');
@@ -239,7 +239,7 @@ const vm = {
     async toSubmit() {
       // if ((await tocheckVal(this)) === false) return;
       // try {
-      //   Cashcash.eventTrack('info_toauth_next_click');
+      //   AndroidH.eventTrack('info_toauth_next_click');
       // } catch (e) {
       // }
 

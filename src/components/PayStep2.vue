@@ -2,7 +2,7 @@
   <div class="bgc">
     <div class="loading"
          v-if="!infoData">Loading....</div>
-    <!-- <div class="top-tips" v-if="infoData.status==170">Pinjam di Cashcash, bisa dapat voucher bebas bunga</div> -->
+    <!-- <div class="top-tips" v-if="infoData.status==170">Pinjam di AndroidH, bisa dapat voucher bebas bunga</div> -->
 
     <!--使用免息券借款的订单，放款成功详情页增加按时还款奖励说明-->
     <div v-if="infoData.status==170">
@@ -407,14 +407,14 @@ export default {
 
   created() {
     // if (this.$route.query.type == 1) {
-    //   location.href = `Cashcash://Cashcashclient/openapp?loan_type=2&order_no=${
+    //   location.href = `AndroidH://Cashcashclient/openapp?loan_type=2&order_no=${
     //     this.$route.query.order_no
     //   }&appid=${this.$route.query.appid}`;
     //   return;
     // }
     this.getDataPage();
     try {
-      Cashcash.eventTrack('Repay_view');
+      AndroidH.eventTrack('Repay_view');
     } catch (e) {
     }
   },
@@ -505,8 +505,8 @@ export default {
     //跳转我的免息券
     toMyCouponPage() {
       try {
-        if (typeof eval(Cashcash.startMyCouponRecord) == "function") {
-          Cashcash.startMyCouponRecord();
+        if (typeof eval(AndroidH.startMyCouponRecord) == "function") {
+          AndroidH.startMyCouponRecord();
         }
       } catch (e) {
         this.showmsg("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -533,8 +533,8 @@ export default {
     //跳转借款页面
     toLoanPage(appid) {
       try {
-        if (typeof eval(Cashcash.startProductLoan) == "function") {
-          Cashcash.startProductLoan(appid + '');
+        if (typeof eval(AndroidH.startProductLoan) == "function") {
+          AndroidH.startProductLoan(appid + '');
         }
       } catch (e) {
         alert("Versi anda sekarang versi rendah, tidak bisa menggunakan fitur memilih nomor dari kontak");
@@ -560,7 +560,7 @@ export default {
     tourl(name) {
       // 埋点统计上报
       try {
-        Cashcash.eventTrack('Repay_next_click');
+        AndroidH.eventTrack('Repay_next_click');
       } catch (e) {
 
       }

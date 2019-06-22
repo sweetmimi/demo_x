@@ -159,10 +159,10 @@ const vm = {
 
     // 退出提示
     try {
-      Cashcash.doShowBack(true, 'Hanya 1 tahap verifikasi lagi, yakin keluar?');
+      AndroidH.doShowBack(true, 'Hanya 1 tahap verifikasi lagi, yakin keluar?');
     } catch (e) {
       try {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       } catch (error) {
 
       }

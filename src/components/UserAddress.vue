@@ -211,12 +211,12 @@ export default {
   mounted() {
     if (this.refill_type === 1) {
       try {
-        Cashcash.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
+        AndroidH.doShowBack(true, 'Jika Anda mengisi informasi, Anda dapat meminjam uang. Yakin ingin keluar?');
       } catch (e) {
-        Cashcash.doShowBack(true)
+        AndroidH.doShowBack(true)
       }
     } else {
-      Cashcash.doShowBack(true);
+      AndroidH.doShowBack(true);
     }
     window["GetDefaultCameraImg"] = url => {
       for (let i = 0, n = this.infoList.length; i < n; i++) {
@@ -229,7 +229,7 @@ export default {
   methods: {
     toOpenCammerSide(imgkind) {
       this.imgkind = imgkind;
-      Cashcash.defaultCamera();
+      AndroidH.defaultCamera();
     },
 
     //输入监控操作方式

@@ -48,7 +48,7 @@ const service = axios.create({
       });
     const time = new Date().valueOf();
     let signstr = "";
-    if (baseinfo.app_package == "com.firestorm.sea.cashcash") {
+    if (baseinfo.app_package == "com.ahudianna.skad") {
       // baseinfo.app_package == "com.tl.pinjamanduit" ||
       // baseinfo.app_package == "com.tl.sakupinjaman" ||
       // baseinfo.app_package == "com.tl.pinjamaja" ||
@@ -90,7 +90,7 @@ const service = axios.create({
       // baseinfo.app_package == "id.cash.second" ||
       // baseinfo.app_package == "com.fs.hitungkredit"
       // 签名的key:
-      signstr = "kenny06300maonian@tao!cashcash";
+      signstr = "UangTerbang@PP90083";
     } else {
       signstr = "zmaoniany@mjb@tao!cashcash96300";
     }
@@ -127,10 +127,10 @@ const service = axios.create({
 
     const form = new FormData();
     form.append(
-      "data",
+      "pcode",
       encrypt(
-        "kenny@1989063006",
-        "abc123rty456nji7",
+        "UangTerbangttc66",
+        "bbc996cvbtyu8900",
         JSON.stringify(Object.assign({}, sortdata, { sign, timestamp: time }))
       )
     );

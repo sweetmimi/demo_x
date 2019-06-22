@@ -163,10 +163,10 @@ export async function toNexturl (obj, url, data, fa, appid, devlist) {
     }
 
     if (info.data.next_pro == -1000) {
-      Cashcash.finishWeb()
+      AndroidH.finishWeb()
     }
     if (fa === 1) {
-      Cashcash.uploadDeviceInfo(devlist, info.data.order_no, appid)
+      AndroidH.uploadDeviceInfo(devlist, info.data.order_no, appid)
     }
   } else {
     obj.$vux.toast.show({
